@@ -1535,6 +1535,146 @@ Currently open to Research, Collaboration &amp; Projects
 
 <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const galleryMap = {
+    "PROGRAMMING": [
+      "programming-1", "programming-2", "programming-3", "programming-4"
+    ],
+
+    "UI/UX DESIGN": [
+      "uiux-cover", "uiux-cafe-1", "uiux-restaurant-1",
+      "uiux-1", "uiux-2", "uiux-3"
+    ],
+
+    "PROBLEM SOLVING": [
+      "problem-solving-1", "problem-solving-2",
+      "problem-solving-3", "problem-solving-4"
+    ],
+
+    "PHOTOGRAPHY": [
+      "photography-1", "photography-2",
+      "photography-3", "photography-4"
+    ],
+
+    "PAINTING": [
+      "painting-1", "painting-2",
+      "painting-3", "painting-4"
+    ],
+
+    "COOKING": [
+      "cooking-1", "cooking-2",
+      "cooking-3", "cooking-4"
+    ],
+
+    "EXPLORING & LEARNING": [
+      "exploring-1", "exploring-2",
+      "exploring-3", "exploring-4"
+    ]
+  };
+
+  const galleryTitles = {
+  "PROGRAMMING": "Coding Practice & Projects",
+  "UI/UX DESIGN": "Interface Design Concepts",
+  "PROBLEM SOLVING": "From Problem to Solution",
+  "PHOTOGRAPHY": "Captured Moments",
+  "PAINTING": "Creative Expressions",
+  "COOKING": "Homemade Creations",
+  "EXPLORING & LEARNING": "Learning Beyond the Classroom"
+};
+
+  const galleryDescriptions = {
+  "PROGRAMMING":
+    "I enjoy practicing programming through academic work, small projects, and continuous problem-solving.",
+
+  "UI/UX DESIGN":
+    "I enjoy exploring clean, user-friendly interface ideas and creating modern mobile application concepts.",
+
+  "PROBLEM SOLVING":
+    "I enjoy analyzing problems, breaking them into smaller parts, and exploring practical and logical solutions.",
+
+  "PHOTOGRAPHY":
+    "Photography allows me to capture meaningful moments, details, and perspectives that I find visually interesting.",
+
+  "PAINTING":
+    "Painting is one of my creative interests and gives me a space to express ideas through colors and visual imagination.",
+
+  "COOKING":
+    "I enjoy preparing different dishes and experimenting with recipes, presentation, and flavors in my free time.",
+
+  "EXPLORING & LEARNING":
+    "I enjoy discovering new ideas, experiences, tools, and knowledge that help me grow personally and academically."
+};
+
+  const extensions = [".jpg", ".jpeg", ".png", ".webp"];
+
+  function findImage(baseName) {
+    return new Promise(resolve => {
+      let i = 0;
+
+      function tryNext() {
+        if (i >= extensions.length) {
+          resolve(null);
+          return;
+        }
+
+        const src = "assets/img/" + baseName + extensions[i++];
+        const img = new Image();
+
+        img.onload = () => resolve(src);
+        img.onerror = tryNext;
+        img.src = src;
+      }
+
+      tryNext();
+    });
+  }
+
+  document
+    .querySelectorAll("#testimonials .col-lg-4 > div")
+    .forEach(card => {
+
+      const heading = card.querySelector("h4");
+      if (!heading) return;
+
+      const title = heading.textContent.trim().toUpperCase();
+      const imageNames = galleryMap[title];
+
+      if (!imageNames) return;
+
+      card.style.cursor = "pointer";
+      card.title = "Click to view gallery";
+
+      card.addEventListener("click", async () => {
+
+        const paths = (
+          await Promise.all(imageNames.map(findImage))
+        ).filter(Boolean);
+
+        if (!paths.length) {
+          alert("Gallery images could not be found.");
+          return;
+        }
+
+        const gallery = GLightbox({
+          touchNavigation: true,
+          loop: true,
+          closeButton: true,
+         elements: paths.map(path => ({
+  href: path,
+  type: "image",
+  title: galleryTitles[title],
+  description: galleryDescriptions[title]
+}))
+        });
+
+        gallery.open();
+      });
+    });
+});
+</script>
+
 </body>
 
 </html>
