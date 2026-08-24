@@ -39,20 +39,47 @@
   ======================================================== -->
 </head>
 
-<body class="index-page">
+<body class="index-page intro-active">
+<!-- ===============================
+     PORTFOLIO WELCOME CURTAIN
+================================ -->
+<div id="portfolio-intro" class="portfolio-intro">
+
+  <div class="portfolio-intro-edge"></div>
+
+  <div class="portfolio-intro-content">
+
+    <span class="portfolio-intro-eyebrow">
+      HELLO &amp; WELCOME
+    </span>
+
+    <h1>WELCOME</h1>
+
+    <p>A glimpse into my journey.</p>
+
+    <span class="portfolio-intro-line"></span>
+
+  </div>
+
+</div>
 
   <header id="header" class="header dark-background d-flex flex-column">
     <i class="header-toggle d-xl-none bi bi-list"></i>
 
     <div class="profile-img">
-         <img src="assets/img/about-noshin.jpg" alt="Noshin Tabassum" class="img-fluid rounded-circle">
+        <img src="assets/img/about-noshin.jpg"
+     class="img-fluid"
+     alt="Noshin Tabassum"
+     data-aos="fade-right"
+     data-aos-duration="700"
+     data-aos-delay="80"
+     style="height: 450px; width: 100%; object-fit: cover;">
     </div>
+<div class="sidebar-welcome">HELLO, I'M</div>
 
-    <a href="index.html" class="logo d-flex align-items-center justify-content-center">
-      <!-- Uncomment the line below if you also wish to use an image logo -->
-      <!-- <img src="assets/img/logo.png" alt=""> -->
-      <h1 class="sitename">Noshin Tabassum</h1>
-    </a>
+<a href="index.html" class="logo d-flex align-items-center justify-content-center">
+  <h1 class="sitename">Noshin Tabassum</h1>
+</a>
 
     <div class="social-links text-center">
 
@@ -93,7 +120,10 @@
   </a>
 
 </div>
-
+ <div class="sidebar-status">
+  <span></span>
+  Open to Research &amp; Collaboration
+</div>
     <nav id="navmenu" class="navmenu">
       <ul>
         <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i>Home</a></li>
@@ -121,11 +151,14 @@
 
  <!-- Hero Section -->
 <section id="hero" class="hero section dark-background">
+  <div class="hero-dynamic-bg">
+  <span class="hero-cursor-glow"></span>
+</div>
 
-  <img src="assets/img/hero-noshin.png" alt="Noshin Tabassum" class="hero-bg">
+  <img src="assets/img/hero-noshin.jpeg" alt="Noshin Tabassum" class="hero-bg">
 
   <div class="container hero-content" data-aos="fade-up" data-aos-delay="100">
-    <h2>Noshin Tabassum</h2>
+    <h2 class="noshin-name-reveal">Noshin Tabassum</h2>
 
     <p>
       I'm a
@@ -146,7 +179,7 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>About Me</h2>
+        <h2 class="about-heading-reveal">About Me</h2>
 
        <p>
   I am a Computer Science student passionate about technology, problem-solving, and continuous learning. I enjoy exploring new ideas, building projects, and developing my technical skills. My goal is to grow as a software engineer and create meaningful, practical digital solutions.
@@ -161,10 +194,15 @@
          <img src="assets/img/about-noshin.jpg"
      class="img-fluid"
      alt="Noshin Tabassum"
-     style="margin-top: 50px; height: 450px; width: 100%; object-fit: cover;">
+     data-aos="fade-right"
+     data-aos-duration="700"
+data-aos-delay="80"
+     style="height: 450px; width: 100%; object-fit: cover;">
           </div>
           <div class="col-lg-8 content">
-                    <h2 style="margin-top: 30px;">Computer Science Student</h2>
+                  <h2 style="margin-top: 30px;">
+  <span id="about-typed"></span>
+</h2>
           <p class="py-3">
   Aspiring Software Engineer with a growing interest in programming, web development, and problem-solving.
          </p>
@@ -289,7 +327,7 @@
 
 
       <!-- ================= HSC ================= -->
-      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="150">
+      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="180">
 
         <h3 class="resume-title">HSC</h3>
 
@@ -340,7 +378,7 @@
 
 
       <!-- ================= SSC ================= -->
-      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="260">
 
         <h3 class="resume-title">SSC</h3>
 
@@ -390,7 +428,7 @@
 
 
       <!-- ================= JSC ================= -->
-      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="150">
+      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="340">
 
         <h3 class="resume-title">JSC</h3>
 
@@ -441,7 +479,7 @@
       <!-- ================= PSC ================= -->
       <div class="col-lg-6 mx-auto"
            data-aos="fade-up"
-           data-aos-delay="100">
+           data-aos-delay="420">
 
         <h3 class="resume-title">PSC</h3>
 
@@ -501,7 +539,7 @@
 
   <!-- Section Title -->
   <div class="container section-title" data-aos="fade-up">
-    <h2>My Skills</h2>
+    <h2 class="premium-section-heading">My Skills</h2>
 
     <p>
       A growing set of technical and problem-solving skills that I continue
@@ -649,7 +687,7 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-       <h2>My Projects</h2>
+       <h2 class="premium-section-heading">My Projects</h2>
         <p>
   Here are some of the academic and personal projects I have worked on while learning and developing my technical skills.
 </p>
@@ -783,7 +821,7 @@
 <section id="services" class="services section">
 
   <div class="container section-title" data-aos="fade-up">
-    <h2>My Research Publications</h2>
+    <h2 class="premium-section-heading">My Research Publications</h2>
 
     <p>
       This section highlights my research interests, academic research activities,
@@ -865,17 +903,7 @@
     <div class="row gy-4">
 
     <div class="col-lg-4 col-md-6">
-  <div style="
-    background:#1f1f1f;
-    min-height:230px;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:30px 20px;
-    border-radius:6px;
-  ">
+  <div class="interest-card">
 
     <i class="bi bi-code-slash"
        style="
@@ -906,48 +934,6 @@
   </div>
 </div>
 
-<!-- UI/UX Design -->
-<div class="col-lg-4 col-md-6">
-  <div style="
-    background:#1f1f1f;
-    min-height:230px;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:30px 20px;
-    border-radius:6px;
-  ">
-
-    <i class="bi bi-bezier2"
-       style="
-       font-size:42px;
-       color:#8b1e24;
-       margin-bottom:20px;
-       ">
-    </i>
-
-    <h4 style="
-      color:white;
-      font-size:20px;
-      font-weight:600;
-      letter-spacing:2px;
-      text-transform:uppercase;
-      margin:0;
-    ">
-      UI/UX Design
-    </h4>
-
-    <div style="
-      width:45px;
-      height:2px;
-      background:#8b1e24;
-      margin-top:18px;
-    "></div>
-
-  </div>
-</div>
 
 <!-- Problem Solving -->
 <div class="col-lg-4 col-md-6">
@@ -1479,6 +1465,68 @@ Currently open to Research, Collaboration &amp; Projects
 <!-- /Contact Section -->
   </main>
 
+  <section class="portfolio-closing">
+    <div class="closing-photo-cycle" aria-hidden="true">
+
+  <img src="assets/img/closing-sunset.jpg" alt="" loading="lazy">
+
+  <img src="assets/img/closing-alley.jpg" alt="" loading="lazy">
+
+  <img src="assets/img/closing-gallery.png" alt="" loading="lazy">
+
+  <img src="assets/img/closing-bloom.jpg" alt="" loading="lazy">
+
+</div>
+
+  <div class="container text-center">
+
+    <span class="closing-eyebrow">THANKS FOR VISITING</span>
+
+    <h2>Noshin Tabassum</h2>
+
+    <p class="closing-message">
+  A curious mind, a purposeful journey, and a heart set on meaningful growth.
+</p>
+
+    <div class="closing-socials">
+
+      <a href="https://www.facebook.com/share/197wj35U3G/"
+         target="_blank"
+         aria-label="Facebook">
+        <i class="bi bi-facebook"></i>
+      </a>
+
+      <a href="https://www.instagram.com/noshin_verse?igsh=MWgyd2xiYnpneTl2cg=="
+         target="_blank"
+         aria-label="Instagram">
+        <i class="bi bi-instagram"></i>
+      </a>
+
+      <a href="https://www.threads.com/@noshin_moonlit"
+         target="_blank"
+         aria-label="Threads">
+        <i class="bi bi-threads"></i>
+      </a>
+
+      <a href="https://www.linkedin.com/in/noshin-tabassum-253050372/"
+         target="_blank"
+         aria-label="LinkedIn">
+        <i class="bi bi-linkedin"></i>
+      </a>
+
+      <a href="https://github.com/noshin31CSE"
+         target="_blank"
+         aria-label="GitHub">
+        <i class="bi bi-github"></i>
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
   <footer id="footer" class="footer position-relative dark-background">
 
   <div class="container">
@@ -1543,11 +1591,6 @@ document.addEventListener("DOMContentLoaded", () => {
       "programming-1", "programming-2", "programming-3", "programming-4"
     ],
 
-    "UI/UX DESIGN": [
-      "uiux-cover", "uiux-cafe-1", "uiux-restaurant-1",
-      "uiux-1", "uiux-2", "uiux-3"
-    ],
-
     "PROBLEM SOLVING": [
       "problem-solving-1", "problem-solving-2",
       "problem-solving-3", "problem-solving-4"
@@ -1559,9 +1602,10 @@ document.addEventListener("DOMContentLoaded", () => {
     ],
 
     "PAINTING": [
-      "painting-1", "painting-2",
-      "painting-3", "painting-4"
-    ],
+  "painting-1",
+  "painting-2",
+  "painting-3"
+],
 
     "COOKING": [
       "cooking-1", "cooking-2",
@@ -1569,27 +1613,25 @@ document.addEventListener("DOMContentLoaded", () => {
     ],
 
     "EXPLORING & LEARNING": [
-      "exploring-1", "exploring-2",
-      "exploring-3", "exploring-4"
-    ]
+  "exploring-1",
+  "exploring-2",
+  "exploring-3",
+  "exploring-4"
+]
   };
 
   const galleryTitles = {
   "PROGRAMMING": "Coding Practice & Projects",
-  "UI/UX DESIGN": "Interface Design Concepts",
   "PROBLEM SOLVING": "From Problem to Solution",
   "PHOTOGRAPHY": "Captured Moments",
   "PAINTING": "Creative Expressions",
   "COOKING": "Homemade Creations",
-  "EXPLORING & LEARNING": "Learning Beyond the Classroom"
+  "EXPLORING & LEARNING": "Exploring, Learning & Discovering"
 };
 
   const galleryDescriptions = {
   "PROGRAMMING":
     "I enjoy practicing programming through academic work, small projects, and continuous problem-solving.",
-
-  "UI/UX DESIGN":
-    "I enjoy exploring clean, user-friendly interface ideas and creating modern mobile application concepts.",
 
   "PROBLEM SOLVING":
     "I enjoy analyzing problems, breaking them into smaller parts, and exploring practical and logical solutions.",
@@ -1603,8 +1645,8 @@ document.addEventListener("DOMContentLoaded", () => {
   "COOKING":
     "I enjoy preparing different dishes and experimenting with recipes, presentation, and flavors in my free time.",
 
-  "EXPLORING & LEARNING":
-    "I enjoy discovering new ideas, experiences, tools, and knowledge that help me grow personally and academically."
+ "EXPLORING & LEARNING":
+  "From study moments to exhibitions and new experiences, I enjoy discovering ideas, learning beyond academics, and exploring the world around me."
 };
 
   const extensions = [".jpg", ".jpeg", ".png", ".webp"];
@@ -1674,6 +1716,363 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 </script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const name = document.querySelector(".noshin-name-reveal");
+
+  if (!name) return;
+
+  const text = name.textContent;
+  name.innerHTML = "";
+
+  [...text].forEach((letter, index) => {
+
+    const span = document.createElement("span");
+
+    if (letter === " ") {
+      span.className = "name-space";
+      span.innerHTML = "&nbsp;";
+    } else {
+      span.className = "name-letter";
+      span.textContent = letter;
+      span.style.setProperty("--i", index);
+    }
+
+    name.appendChild(span);
+  });
+
+});
+</script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const hero = document.querySelector("#hero");
+  const glow = document.querySelector(".hero-cursor-glow");
+
+  if (!hero || !glow) return;
+
+  hero.addEventListener("mousemove", function (e) {
+
+    const rect = hero.getBoundingClientRect();
+
+    glow.style.left = (e.clientX - rect.left) + "px";
+    glow.style.top = (e.clientY - rect.top) + "px";
+    glow.style.opacity = "1";
+
+  });
+
+  hero.addEventListener("mouseleave", function () {
+    glow.style.opacity = "0";
+  });
+
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const background = document.querySelector("#hero .hero-dynamic-bg");
+
+  if (!background) return;
+
+  for (let i = 0; i < 24; i++) {
+
+    const particle = document.createElement("span");
+
+    const shape = Math.random() > 0.55 ? "diamond" : "round";
+    const tone = i % 3 === 0 ? "wine" : "soft";
+
+    particle.className =
+      "hero-particle " + shape + " " + tone;
+
+    const size = Math.random() * 4 + 3;
+
+    particle.style.width = size + "px";
+    particle.style.height = size + "px";
+
+    particle.style.left = Math.random() * 96 + "%";
+    particle.style.top = (Math.random() * 85 + 5) + "%";
+
+    particle.style.setProperty(
+      "--duration",
+      (Math.random() * 3 + 4) + "s"
+    );
+
+    particle.style.setProperty(
+      "--delay",
+      (Math.random() * -7) + "s"
+    );
+
+    particle.style.setProperty(
+      "--opacity",
+      (Math.random() * 0.35 + 0.35)
+    );
+
+    particle.style.setProperty(
+      "--move-x",
+      (Math.random() * 80 - 40) + "px"
+    );
+
+    background.appendChild(particle);
+  }
+
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const cards = document.querySelectorAll(
+  ".portfolio-content"
+);
+  cards.forEach(card => {
+
+    card.addEventListener("mousemove", function (e) {
+
+      const rect = card.getBoundingClientRect();
+
+      card.style.setProperty(
+        "--card-x",
+        (e.clientX - rect.left) + "px"
+      );
+
+      card.style.setProperty(
+        "--card-y",
+        (e.clientY - rect.top) + "px"
+      );
+
+    });
+
+  });
+
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const aboutTitle = document.querySelector("#about-typed");
+
+  if (!aboutTitle) return;
+
+  let hasStarted = false;
+
+  const observer = new IntersectionObserver((entries) => {
+
+    entries.forEach((entry) => {
+
+      if (entry.isIntersecting && !hasStarted) {
+
+        hasStarted = true;
+
+        new Typed("#about-typed", {
+          strings: ["Computer Science Student"],
+          typeSpeed: 24,
+          startDelay: 350,
+          showCursor: true,
+          cursorChar: "|",
+          loop: false
+        });
+
+        observer.disconnect();
+      }
+
+    });
+
+  }, {
+    threshold: 0.45
+  });
+
+  observer.observe(aboutTitle);
+
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const heading = document.querySelector(".about-heading-reveal");
+
+  if (!heading) return;
+
+  const text = heading.textContent.trim();
+  heading.innerHTML = "";
+
+  [...text].forEach((letter, index) => {
+
+    const span = document.createElement("span");
+
+    if (letter === " ") {
+      span.className = "about-space";
+      span.innerHTML = "&nbsp;";
+    } else {
+      span.className = "about-letter";
+      span.textContent = letter;
+      span.style.setProperty("--i", index);
+    }
+
+    heading.appendChild(span);
+  });
+
+
+  const observer = new IntersectionObserver((entries) => {
+
+    entries.forEach(entry => {
+
+      if (entry.isIntersecting) {
+
+        heading
+          .querySelectorAll(".about-letter")
+          .forEach(letter => {
+            letter.classList.add("reveal");
+          });
+
+        observer.disconnect();
+      }
+
+    });
+
+  }, {
+    threshold: 0.6
+  });
+
+  observer.observe(heading);
+
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const skillsSection = document.querySelector("#skills");
+  if (!skillsSection) return;
+
+  let animated = false;
+
+  const observer = new IntersectionObserver((entries) => {
+
+    entries.forEach(entry => {
+
+      if (entry.isIntersecting && !animated) {
+
+        animated = true;
+
+        document.querySelectorAll("#skills .progress").forEach((skill, index) => {
+
+          const bar = skill.querySelector(".progress-bar");
+          const value = skill.querySelector(".val");
+
+          if (!bar || !value) return;
+
+          const target = parseInt(bar.getAttribute("aria-valuenow"));
+          let current = 0;
+
+          setTimeout(() => {
+
+            const timer = setInterval(() => {
+
+              current++;
+
+              value.textContent = current + "%";
+
+              if (current >= target) {
+                clearInterval(timer);
+              }
+
+            }, 12);
+
+          }, index * 90);
+
+        });
+
+        observer.disconnect();
+      }
+
+    });
+
+  }, {
+    threshold: 0.35
+  });
+
+  observer.observe(skillsSection);
+
+});
+</script>
+
+<script>
+window.addEventListener("load", function () {
+
+  const body = document.body;
+  const intro = document.getElementById("portfolio-intro");
+
+  if (!intro) return;
+
+  /* Start after normal page loader finishes */
+  setTimeout(function () {
+    body.classList.add("intro-start");
+  }, 120);
+
+
+  /* Curtain finished */
+  setTimeout(function () {
+
+    body.classList.remove("intro-active");
+    body.classList.remove("intro-start");
+
+    intro.remove();
+
+  }, 2050);
+
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const body = document.body;
+  const intro = document.getElementById("portfolio-intro");
+  const preloader = document.getElementById("preloader");
+
+if (preloader) {
+  preloader.remove();
+}
+
+  if (!intro) {
+    body.classList.remove("intro-active");
+    return;
+  }
+
+  /* Start greeting */
+  setTimeout(function () {
+    body.classList.add("intro-start");
+  }, 120);
+
+
+  /* Start hero animation BEFORE curtain fully disappears */
+  setTimeout(function () {
+    body.classList.remove("intro-active");
+  }, 1550);
+
+
+  /* Remove curtain immediately after its exit */
+  setTimeout(function () {
+    body.classList.remove("intro-start");
+    intro.remove();
+  }, 1900);
+
+});
+</script>
+
+
+
+
+
+
+
+
 
 </body>
 
