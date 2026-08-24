@@ -2067,7 +2067,260 @@ if (preloader) {
 });
 </script>
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
 
+  /* =========================================
+     1. HERO NATIVE TYPEWRITER
+  ========================================= */
+
+  const heroTyped = document.querySelector("#hero .typed");
+
+  if (heroTyped) {
+
+    const items = (heroTyped.getAttribute("data-typed-items") || "")
+      .split(",")
+      .map(item => item.trim())
+      .filter(Boolean);
+
+    heroTyped.textContent = "";
+
+    let wordIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+
+    function heroTypeLoop() {
+
+      if (!items.length) return;
+
+      const word = items[wordIndex];
+
+      if (!deleting) {
+
+        charIndex++;
+        heroTyped.textContent = word.substring(0, charIndex);
+
+        if (charIndex === word.length) {
+          deleting = true;
+          setTimeout(heroTypeLoop, 1100);
+          return;
+        }
+
+        setTimeout(heroTypeLoop, 55);
+
+      } else {
+
+        charIndex--;
+        heroTyped.textContent = word.substring(0, charIndex);
+
+        if (charIndex === 0) {
+          deleting = false;
+          wordIndex = (wordIndex + 1) % items.length;
+
+          setTimeout(heroTypeLoop, 300);
+          return;
+        }
+
+        setTimeout(heroTypeLoop, 30);
+      }
+    }
+
+    /* Curtain almost finished */
+    const intro = document.getElementById("portfolio-intro");
+
+    setTimeout(
+      heroTypeLoop,
+      intro ? 1950 : 350
+    );
+  }
+
+
+  /* =========================================
+     2. ABOUT — COMPUTER SCIENCE STUDENT
+  ========================================= */
+
+  const aboutTyped = document.getElementById("about-typed");
+
+  if (aboutTyped) {
+
+    const text = "Computer Science Student";
+
+    aboutTyped.textContent = "";
+
+    let started = false;
+
+    const aboutObserver = new IntersectionObserver((entries) => {
+
+      entries.forEach(entry => {
+
+        if (entry.isIntersecting && !started) {
+
+          started = true;
+
+          let i = 0;
+
+          function typeAbout() {
+
+            aboutTyped.textContent = text.substring(0, i + 1);
+            i++;
+
+            if (i < text.length) {
+              setTimeout(typeAbout, 28);
+            }
+          }
+
+          setTimeout(typeAbout, 180);
+
+          aboutObserver.disconnect();
+        }
+      });
+
+    }, {
+      threshold: 0.30
+    });
+
+    aboutObserver.observe(aboutTyped);
+  }
+
+
+  /* =========================================
+     3. ABOUT ME LETTER REVEAL FALLBACK
+  ========================================= */
+
+  const aboutHeading = document.querySelector(".about-heading-reveal");
+
+  if (aboutHeading) {
+
+    const letters = aboutHeading.querySelectorAll(".about-letter");
+
+    if (letters.length) {
+
+      const headingObserver = new IntersectionObserver((entries) => {
+
+        entries.forEach(entry => {
+
+          if (entry.isIntersecting) {
+
+            letters.forEach((letter, index) => {
+
+              setTimeout(() => {
+                letter.classList.add("reveal");
+              }, index * 55);
+
+            });
+
+            headingObserver.disconnect();
+          }
+
+        });
+
+      }, {
+        threshold: 0.35
+      });
+
+      headingObserver.observe(aboutHeading);
+    }
+  }
+
+
+  /* =========================================
+     4. SKILLS — BAR + COUNT UP
+  ========================================= */
+
+  const skillsSection = document.querySelector("#skills");
+
+  if (skillsSection) {
+
+    const skillItems = skillsSection.querySelectorAll(".progress");
+
+    skillItems.forEach(item => {
+
+      const bar = item.querySelector(".progress-bar");
+      const val = item.querySelector(".val");
+
+      if (bar) {
+        bar.style.setProperty("width", "0%", "important");
+        bar.style.transition =
+          "width 1.05s cubic-bezier(.2,.8,.2,1)";
+      }
+
+      if (val) {
+        val.textContent = "0%";
+      }
+
+    });
+
+
+    let skillsStarted = false;
+
+    const skillsObserver = new IntersectionObserver((entries) => {
+
+      entries.forEach(entry => {
+
+        if (entry.isIntersecting && !skillsStarted) {
+
+          skillsStarted = true;
+
+          skillItems.forEach((item, index) => {
+
+            const bar = item.querySelector(".progress-bar");
+            const val = item.querySelector(".val");
+
+            if (!bar || !val) return;
+
+            const target =
+              parseInt(bar.getAttribute("aria-valuenow"), 10) || 0;
+
+            setTimeout(() => {
+
+              /* progress bar */
+              bar.style.setProperty(
+                "width",
+                target + "%",
+                "important"
+              );
+
+              /* number counter */
+              const duration = 1000;
+              const start = performance.now();
+
+              function animateNumber(now) {
+
+                const progress =
+                  Math.min((now - start) / duration, 1);
+
+                const current =
+                  Math.floor(progress * target);
+
+                val.textContent = current + "%";
+
+                if (progress < 1) {
+                  requestAnimationFrame(animateNumber);
+                } else {
+                  val.textContent = target + "%";
+                }
+              }
+
+              requestAnimationFrame(animateNumber);
+
+            }, index * 110);
+
+          });
+
+          skillsObserver.disconnect();
+        }
+
+      });
+
+    }, {
+      threshold: 0.22
+    });
+
+    skillsObserver.observe(skillsSection);
+  }
+
+});
+</script>
 
 
 
