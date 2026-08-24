@@ -1375,14 +1375,6 @@ section,
   width: 100% !important;
 }
 
-.about-img {
-  margin-top: 70px;
-}
-
-.about-img {
-  margin-top: 80px;
-}
-
 #hero h2 {
   font-size: 52px !important;
 }
@@ -3673,5 +3665,1283 @@ section,
   .glightbox-container .gslide-desc {
     font-size: 13px !important;
     line-height: 1.5 !important;
+  }
+}
+
+/* =========================================
+   HERO NAME — SIGNATURE LETTER REVEAL
+========================================= */
+
+.noshin-name-reveal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+}
+
+.noshin-name-reveal .name-letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(18px) scale(.92);
+  filter: blur(7px);
+
+  animation: noshinLetterReveal .48s
+             cubic-bezier(.2,.8,.2,1) forwards;
+
+  animation-delay: calc(var(--i) * 0.045s);
+}
+
+.noshin-name-reveal .name-space {
+  width: .28em;
+}
+
+@keyframes noshinLetterReveal {
+
+  0% {
+    opacity: 0;
+    transform: translateY(18px) scale(.92);
+    filter: blur(7px);
+    color: #8b1e24;
+    text-shadow: 0 0 18px rgba(139,30,36,.75);
+  }
+
+  65% {
+    opacity: 1;
+    transform: translateY(-2px) scale(1.025);
+    filter: blur(0);
+    color: #b33a42;
+    text-shadow: 0 0 14px rgba(139,30,36,.42);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+    color: #ffffff;
+    text-shadow: none;
+  }
+}
+
+/* =========================================
+   NOSHIN HERO — VISIBLE DYNAMIC EFFECT
+========================================= */
+
+#hero {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+#hero .hero-dynamic-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+
+/* cursor light */
+.hero-cursor-glow {
+  position: absolute;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(170, 45, 55, .32) 0%,
+    rgba(114, 31, 35, .16) 32%,
+    transparent 70%
+  );
+
+  filter: blur(8px);
+
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+
+  transition:
+    left .12s linear,
+    top .12s linear;
+
+  opacity: 0;
+transition:
+  left .12s linear,
+  top .12s linear,
+  opacity .25s ease;
+}
+
+/* text/photo always above effects */
+#hero .container,
+#hero .hero-container,
+#hero .hero-content {
+  position: relative !important;
+  z-index: 4 !important;
+}
+
+/* =========================================
+   HERO — CINEMATIC MICRO PARTICLES
+========================================= */
+
+.hero-particle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+
+  animation:
+    noshinParticleFloat var(--duration) ease-in-out
+    var(--delay) infinite;
+}
+
+.hero-particle.wine {
+  background: rgba(160, 46, 55, 0.85);
+  box-shadow: 0 0 10px rgba(139, 30, 36, 0.55);
+}
+
+.hero-particle.soft {
+  background: rgba(255, 255, 255, 0.65);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.25);
+}
+
+
+@keyframes noshinParticleFloat {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(.7);
+  }
+
+  15% {
+    opacity: var(--opacity);
+  }
+
+  50% {
+    opacity: var(--opacity);
+    transform: translate(var(--move-x), -45px) scale(1.15);
+  }
+
+  85% {
+    opacity: var(--opacity);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(calc(var(--move-x) * -1), -100px) scale(.8);
+  }
+}
+/* =========================================
+   PROJECT CARDS — SUBTLE CURSOR GLOW
+========================================= */
+
+.portfolio-content {
+  position: relative !important;
+  overflow: hidden !important;
+
+  --card-x: 50%;
+  --card-y: 50%;
+}
+
+/* Much softer mouse-follow glow */
+.portfolio-content::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+
+  background: radial-gradient(
+    85px circle at var(--card-x) var(--card-y),
+    rgba(139, 30, 36, 0.11) 0%,
+    rgba(139, 30, 36, 0.04) 40%,
+    transparent 72%
+  );
+
+  opacity: 0;
+  transition: opacity .22s ease;
+}
+
+.portfolio-content:hover::after {
+  opacity: 1;
+}
+
+/* =========================================
+   ABOUT ME — ELEGANT LETTER REVEAL
+========================================= */
+
+.about-heading-reveal .about-letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(14px);
+  filter: blur(4px);
+
+  transition:
+    opacity .45s ease,
+    transform .45s cubic-bezier(.2,.8,.2,1),
+    filter .45s ease;
+
+  transition-delay: calc(var(--i) * 0.055s);
+}
+
+.about-heading-reveal .about-letter.reveal {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+.about-heading-reveal .about-space {
+  display: inline-block;
+  width: .28em;
+}
+
+/* =========================================
+   EDUCATION — PREMIUM SCROLL POLISH
+========================================= */
+
+#resume .col-lg-6.aos-animate .resume-item {
+  animation: educationCardSettle .75s ease both;
+}
+
+@keyframes educationCardSettle {
+  0% {
+    box-shadow:
+      0 7px 22px rgba(0,0,0,.055),
+      0 0 0 rgba(139,30,36,0);
+  }
+
+  55% {
+    box-shadow:
+      0 14px 32px rgba(0,0,0,.09),
+      0 0 22px rgba(139,30,36,.13);
+  }
+
+  100% {
+    box-shadow:
+      0 7px 22px rgba(0,0,0,.055),
+      0 0 0 rgba(139,30,36,0);
+  }
+}
+
+/* =========================================
+   CONTACT DOODLES — CINEMATIC RISING EFFECT
+========================================= */
+
+.contact-doodles .doodle {
+  color: rgba(139, 30, 36, 0.25) !important;
+
+  animation: doodleRise 7s ease-in-out infinite;
+  will-change: translate, opacity, scale, filter;
+}
+
+/* Different speed = natural movement */
+
+.contact-doodles .doodle-1 {
+  animation-duration: 7s;
+  animation-delay: -1s;
+}
+
+.contact-doodles .doodle-2 {
+  animation-duration: 8.5s;
+  animation-delay: -4s;
+}
+
+.contact-doodles .doodle-3 {
+  animation-duration: 7.8s;
+  animation-delay: -2s;
+}
+
+.contact-doodles .doodle-4 {
+  animation-duration: 9s;
+  animation-delay: -6s;
+}
+
+.contact-doodles .doodle-5 {
+  animation-duration: 6.8s;
+  animation-delay: -3s;
+}
+
+@keyframes doodleRise {
+
+  0% {
+    translate: 0 45px;
+    scale: .92;
+    opacity: 0;
+
+    filter:
+      blur(1px)
+      drop-shadow(0 0 0 rgba(139,30,36,0));
+  }
+
+  18% {
+    opacity: .65;
+  }
+
+  50% {
+    translate: 8px -25px;
+    scale: 1.03;
+    opacity: .9;
+
+    filter:
+      blur(0)
+      drop-shadow(0 0 9px rgba(139,30,36,.25));
+  }
+
+  82% {
+    opacity: .55;
+  }
+
+  100% {
+    translate: -5px -95px;
+    scale: .96;
+    opacity: 0;
+
+    filter:
+      blur(.7px)
+      drop-shadow(0 0 3px rgba(139,30,36,.10));
+  }
+}
+
+/* =========================================
+   RESEARCH — PREMIUM SCROLL POLISH
+========================================= */
+
+/* Icon settles in with a soft wine glow */
+#services .service-item.aos-animate .icon {
+  animation: researchIconReveal .8s cubic-bezier(.2,.8,.2,1) both;
+}
+
+@keyframes researchIconReveal {
+  0% {
+    opacity: 0;
+    transform: scale(.75) rotate(-8deg);
+    box-shadow: 0 0 0 rgba(139,30,36,0);
+  }
+
+  60% {
+    opacity: 1;
+    transform: scale(1.06) rotate(2deg);
+    box-shadow: 0 0 22px rgba(139,30,36,.24);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+    box-shadow: 0 0 0 rgba(139,30,36,0);
+  }
+}
+
+/* Paper title + content appear slightly after card */
+#services .service-item.aos-animate .title,
+#services .service-item.aos-animate .description,
+#services .service-item.aos-animate p,
+#services .service-item.aos-animate .publication-link {
+  animation: researchContentReveal .65s ease both;
+}
+
+#services .service-item.aos-animate .title {
+  animation-delay: .12s;
+}
+
+#services .service-item.aos-animate .description {
+  animation-delay: .20s;
+}
+
+#services .service-item.aos-animate p {
+  animation-delay: .27s;
+}
+
+#services .service-item.aos-animate .publication-link {
+  animation-delay: .34s;
+}
+
+@keyframes researchContentReveal {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================
+   SECTION HEADINGS — SIGNATURE REVEAL
+========================================= */
+
+.premium-section-heading {
+  opacity: 0;
+  transform: translateX(-28px);
+  filter: blur(5px);
+  clip-path: inset(0 100% 0 0);
+}
+
+/* Scroll into view */
+.section-title.aos-animate .premium-section-heading {
+  animation: sectionHeadingReveal .8s
+             cubic-bezier(.2,.8,.2,1) forwards;
+}
+
+@keyframes sectionHeadingReveal {
+
+  0% {
+    opacity: 0;
+    transform: translateX(-28px);
+    filter: blur(5px);
+    clip-path: inset(0 100% 0 0);
+  }
+
+  65% {
+    opacity: 1;
+    transform: translateX(3px);
+    filter: blur(0);
+    clip-path: inset(0 0 0 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+    filter: blur(0);
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+
+/* Underline starts AFTER text reveal */
+.section-title .premium-section-heading::after {
+  width: 0 !important;
+  animation: none !important;
+}
+
+.section-title.aos-animate .premium-section-heading::after {
+  animation: headingWineLine .65s .55s ease forwards !important;
+}
+
+@keyframes headingWineLine {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+/* Sidebar Welcome */
+.sidebar-welcome {
+  text-align: center;
+  color: #a72b32;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  margin-bottom: 7px;
+  opacity: 0;
+
+  animation: sidebarWelcomeReveal .7s ease .35s forwards;
+}
+
+@keyframes sidebarWelcomeReveal {
+  from {
+    opacity: 0;
+    transform: translateY(7px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sidebar-status {
+  width: fit-content;
+  margin: 4px auto 14px;
+  padding: 7px 12px;
+
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  color: #9da3ad;
+  background: rgba(255,255,255,.035);
+  border: 1px solid rgba(139,30,36,.18);
+  border-radius: 20px;
+
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .7px;
+  text-transform: uppercase;
+}
+
+.sidebar-status span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #a72b32;
+  box-shadow: 0 0 8px rgba(167,43,50,.45);
+}
+
+/* =========================================
+   PORTFOLIO SIGNATURE CLOSING
+========================================= */
+
+.portfolio-closing {
+  position: relative;
+  padding: 75px 20px 65px;
+
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(139, 30, 36, .055),
+      transparent 38%
+    ),
+    #ffffff;
+
+  text-align: center;
+}
+
+.closing-eyebrow {
+  display: inline-block;
+
+  color: #8b1e24;
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 4px;
+
+  margin-bottom: 15px;
+}
+
+.portfolio-closing h2 {
+  color: #111820;
+
+  font-size: 44px;
+  font-weight: 700;
+
+  margin-bottom: 12px;
+}
+
+.closing-message {
+  max-width: 700px;
+  margin: 0 auto 28px;
+
+  color: #555b63;
+
+  font-size: 17px;
+  font-style: italic;
+  line-height: 1.7;
+}
+
+.closing-socials {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.closing-socials a {
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #111820;
+  color: #ffffff;
+
+  font-size: 18px;
+
+  transition:
+    transform .3s ease,
+    background .3s ease,
+    box-shadow .3s ease;
+}
+
+.closing-socials a:hover {
+  background: #8b1e24;
+  color: #ffffff;
+
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 8px 20px rgba(139,30,36,.22);
+}
+
+@media (max-width: 768px) {
+
+  .portfolio-closing {
+    padding: 55px 18px 50px;
+  }
+
+  .portfolio-closing h2 {
+    font-size: 34px;
+  }
+
+  .closing-message {
+    font-size: 15px;
+  }
+
+  .closing-socials a {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+}
+
+/* Final spacing polish */
+.contact-modern {
+  padding-bottom: 40px !important;
+}
+
+.portfolio-closing {
+  padding: 60px 20px 55px !important;
+}
+
+/* =========================================
+   CLOSING — TILTED AUTO PHOTO CYCLE
+========================================= */
+
+.portfolio-closing {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+/* Keep text above photo animation */
+.portfolio-closing > .container {
+  position: relative;
+  z-index: 3;
+}
+
+
+/* Photo frame area */
+.closing-photo-cycle {
+  position: absolute;
+  right: 6%;
+  top: 50%;
+
+  width: 150px;
+  height: 195px;
+
+  transform: translateY(-50%);
+  z-index: 2;
+
+  pointer-events: none;
+}
+
+
+/* All photos stay in same position */
+.closing-photo-cycle img {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  /* Polaroid style */
+  padding: 6px 6px 20px;
+  background: #ffffff;
+
+  border-radius: 5px;
+
+  box-shadow:
+    0 16px 35px rgba(0, 0, 0, .17),
+    0 0 0 1px rgba(139, 30, 36, .08);
+
+  opacity: 0;
+
+  --photo-tilt: 0deg;
+
+  animation: noshinClosingPhoto 12s infinite;
+}
+
+
+/* Photo 1 */
+.closing-photo-cycle img:nth-child(1) {
+  --photo-tilt: -7deg;
+  animation-delay: 0s;
+}
+
+/* Photo 2 */
+.closing-photo-cycle img:nth-child(2) {
+  --photo-tilt: 6deg;
+  animation-delay: 4s;
+}
+
+/* Photo 3 */
+.closing-photo-cycle img:nth-child(3) {
+  --photo-tilt: -4deg;
+  animation-delay: 8s;
+}
+
+
+@keyframes noshinClosingPhoto {
+
+  0% {
+    opacity: 0;
+    transform:
+      translateY(18px)
+      rotate(var(--photo-tilt))
+      scale(.92);
+  }
+
+  8% {
+    opacity: 1;
+  }
+
+  15% {
+    opacity: 1;
+    transform:
+      translateY(0)
+      rotate(var(--photo-tilt))
+      scale(1);
+  }
+
+  28% {
+    opacity: 1;
+    transform:
+      translateY(-3px)
+      rotate(var(--photo-tilt))
+      scale(1.015);
+  }
+
+  36% {
+    opacity: 0;
+    transform:
+      translateY(-18px)
+      rotate(var(--photo-tilt))
+      scale(.96);
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+
+/* For now keep mobile clean */
+@media (max-width: 900px) {
+  .closing-photo-cycle {
+    display: none;
+  }
+}
+
+/* ==================================================
+   CLOSING — SLOW STACKED PHOTO CAROUSEL
+================================================== */
+
+.portfolio-closing {
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-closing > .container {
+  position: relative;
+  z-index: 5;
+}
+
+
+/* Bigger photo stack */
+.closing-photo-cycle {
+  position: absolute;
+
+  right: 5%;
+  top: 50%;
+
+  width: 230px;
+  height: 290px;
+
+  transform: translateY(-50%);
+
+  z-index: 2;
+  pointer-events: none;
+}
+
+
+/* All photo cards */
+.closing-photo-cycle img {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  background: #fff;
+
+  /* Polaroid frame */
+  padding: 8px 8px 26px;
+
+  border-radius: 7px;
+
+  box-shadow:
+    0 20px 45px rgba(15, 18, 22, .17),
+    0 0 0 1px rgba(139, 30, 36, .08);
+
+  transform-origin: center center;
+
+  animation:
+    noshinStackCycle 20s
+    cubic-bezier(.45, 0, .2, 1)
+    infinite;
+}
+
+
+/* Start every image at a different stage */
+.closing-photo-cycle img:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.closing-photo-cycle img:nth-child(2) {
+  animation-delay: -15s;
+}
+
+.closing-photo-cycle img:nth-child(3) {
+  animation-delay: -10s;
+}
+
+.closing-photo-cycle img:nth-child(4) {
+  animation-delay: -5s;
+}
+
+
+/* =========================================
+   STACK MOVEMENT
+========================================= */
+
+@keyframes noshinStackCycle {
+
+  /* FRONT — MAIN PHOTO */
+  0%,
+  18% {
+    opacity: 1;
+
+    z-index: 4;
+
+    transform:
+      translate(0, 0)
+      rotate(-4deg)
+      scale(1);
+
+    filter:
+      brightness(1)
+      saturate(1);
+  }
+
+
+  /* MOVE TO LEFT-BACK */
+  25%,
+  43% {
+    opacity: .34;
+
+    z-index: 3;
+
+    transform:
+      translate(-24px, 13px)
+      rotate(-9deg)
+      scale(.96);
+
+    filter:
+      brightness(1.04)
+      saturate(.82);
+  }
+
+
+  /* MOVE TO RIGHT-BACK */
+  50%,
+  68% {
+    opacity: .18;
+
+    z-index: 2;
+
+    transform:
+      translate(24px, 18px)
+      rotate(7deg)
+      scale(.93);
+
+    filter:
+      brightness(1.06)
+      saturate(.68);
+  }
+
+
+  /* HIDDEN AT VERY BACK */
+  75%,
+  93% {
+    opacity: 0;
+
+    z-index: 1;
+
+    transform:
+      translate(8px, 26px)
+      rotate(2deg)
+      scale(.90);
+  }
+
+
+  /* COME BACK TO FRONT */
+  100% {
+    opacity: 1;
+
+    z-index: 4;
+
+    transform:
+      translate(0, 0)
+      rotate(-4deg)
+      scale(1);
+
+    filter:
+      brightness(1)
+      saturate(1);
+  }
+
+}
+
+
+/* Very subtle wine circle */
+.closing-photo-cycle::after {
+  content: "";
+
+  position: absolute;
+
+  width: 120px;
+  height: 120px;
+
+  right: -45px;
+  bottom: -38px;
+
+  border: 1px solid rgba(139, 30, 36, .10);
+  border-radius: 50%;
+
+  z-index: -1;
+}
+
+
+/* Tablet / mobile */
+@media (max-width: 900px) {
+  .closing-photo-cycle {
+    display: none;
+  }
+}
+
+/* ==================================================
+   PORTFOLIO OPENING — CINEMATIC WELCOME CURTAIN
+================================================== */
+
+html {
+  scrollbar-gutter: stable;
+}
+
+body.intro-active {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+
+/* Main curtain */
+.portfolio-intro {
+  position: fixed;
+  inset: 0;
+
+  width: 100%;
+  height: 100vh;
+
+  background:
+    radial-gradient(
+      circle at 18% 50%,
+      rgba(139, 30, 36, .16),
+      transparent 32%
+    ),
+    linear-gradient(
+      115deg,
+      #05070a 0%,
+      #091019 58%,
+      #05070a 100%
+    );
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  z-index: 1000000;
+
+  transform: translateX(0);
+
+  will-change: transform;
+}
+
+
+/* Soft vertical curtain edge */
+.portfolio-intro-edge {
+  position: absolute;
+
+  top: 0;
+  right: 0;
+
+  width: 4px;
+  height: 100%;
+
+  background: #8b1e24;
+
+  box-shadow:
+    -10px 0 35px rgba(139, 30, 36, .40),
+    0 0 18px rgba(139, 30, 36, .55);
+}
+
+
+/* Greeting content */
+.portfolio-intro-content {
+  position: relative;
+
+  text-align: center;
+
+  opacity: 0;
+
+  transform: translateY(14px);
+
+  z-index: 2;
+}
+
+
+/* Small greeting */
+.portfolio-intro-eyebrow {
+  display: block;
+
+  margin-bottom: 15px;
+
+  color: #a72b32;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 5px;
+}
+
+
+/* WELCOME */
+.portfolio-intro h1 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: clamp(48px, 7vw, 92px);
+  font-weight: 700;
+
+  letter-spacing: 4px;
+
+  line-height: 1;
+}
+
+
+/* Subtitle */
+.portfolio-intro p {
+  margin: 18px 0 20px;
+
+  color: rgba(255, 255, 255, .68);
+
+  font-size: 16px;
+  font-style: italic;
+
+  letter-spacing: .5px;
+}
+
+
+/* Wine line */
+.portfolio-intro-line {
+  display: block;
+
+  width: 0;
+  height: 2px;
+
+  margin: 0 auto;
+
+  background: #8b1e24;
+
+  border-radius: 20px;
+}
+
+
+/* ===============================
+   START AFTER PAGE LOAD
+================================ */
+
+body.intro-start .portfolio-intro-content {
+  animation:
+    introContentIn .48s ease forwards,
+    introContentOut .28s ease .68s forwards;
+}
+
+
+body.intro-start .portfolio-intro-line {
+  animation: introLineGrow .55s .20s ease forwards;
+}
+
+
+/* Whole curtain moves toward sidebar / left */
+body.intro-start .portfolio-intro {
+  animation:
+    portfolioCurtainExit
+    1s
+    cubic-bezier(.77, 0, .18, 1)
+    .88s
+    forwards;
+}
+
+
+/* Greeting reveal */
+@keyframes introContentIn {
+
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+    filter: blur(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+
+}
+
+
+/* Greeting fades before curtain leaves */
+@keyframes introContentOut {
+
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+}
+
+
+/* Maroon line */
+@keyframes introLineGrow {
+
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 85px;
+  }
+
+}
+
+
+/* THE IMPORTANT PART */
+@keyframes portfolioCurtainExit {
+
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+
+}
+
+
+/* Pause hero name until curtain disappears */
+body.intro-active
+.noshin-name-reveal
+.name-letter {
+  animation-play-state: paused !important;
+}
+
+
+/* Mobile */
+@media (max-width: 768px) {
+
+  .portfolio-intro h1 {
+    font-size: 48px;
+    letter-spacing: 2px;
+  }
+
+  .portfolio-intro p {
+    font-size: 14px;
+  }
+
+  .portfolio-intro-eyebrow {
+    font-size: 9px;
+    letter-spacing: 3px;
+  }
+
+}
+
+/* ABOUT PHOTO — DESKTOP VERTICAL ALIGNMENT */
+@media (min-width: 769px) {
+  #about .col-lg-4 > img {
+    margin-top: 48px !important;
+  }
+}
+
+/* =========================================
+   SIDEBAR PROFILE IMAGE — FINAL OVAL FIX
+========================================= */
+
+#header .profile-img {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+#header .profile-img img {
+  width: 125px !important;
+  height: 155px !important;
+
+  max-width: 125px !important;
+  min-width: 125px !important;
+
+  display: block !important;
+
+  object-fit: cover !important;
+  object-position: center 25% !important;
+
+  /* Elegant vertical oval */
+  border-radius: 50% / 42% !important;
+
+  margin: 15px auto !important;
+
+  border: 8px solid rgba(255, 255, 255, 0.12) !important;
+
+  box-shadow:
+    0 10px 28px rgba(0, 0, 0, 0.28),
+    0 0 0 1px rgba(139, 30, 36, 0.08);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+#header .profile-img img:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 14px 32px rgba(0, 0, 0, 0.34),
+    0 0 18px rgba(139, 30, 36, 0.10);
+}
+
+/* Keep size balanced on smaller screens */
+@media (max-width: 1199px) {
+  #header .profile-img img {
+    width: 120px !important;
+    height: 148px !important;
+
+    max-width: 120px !important;
+    min-width: 120px !important;
   }
 }
