@@ -1591,7 +1591,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const results = await Promise.all(baseNames.map(resolveImage));
     return results.filter(Boolean);
   }
+  /* Preload all interest galleries so they open instantly */
+const galleryCache = {};
 
+Object.entries(galleryBases).forEach(([key, baseNames]) => {
+  galleryCache[key] = resolveGallery(baseNames);
+});
   const lightbox = document.createElement("div");
   lightbox.id = "noshin-interest-lightbox";
   lightbox.innerHTML = `
@@ -1683,7 +1688,7 @@ document.addEventListener("DOMContentLoaded", function () {
     async function handleOpen() {
       if (card.dataset.loading === "true") return;
       card.dataset.loading = "true";
-      const images = await resolveGallery(galleryBases[key]);
+      const images = await galleryCache[key];
       card.dataset.loading = "false";
 
       if (!images.length) {
