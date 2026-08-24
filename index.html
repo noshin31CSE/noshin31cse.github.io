@@ -50,7 +50,12 @@
 <header class="header dark-background d-flex flex-column" id="header">
 <i class="header-toggle d-xl-none bi bi-list"></i>
 <div class="profile-img">
-<img alt="Noshin Tabassum" class="img-fluid" data-aos="fade-right" data-aos-delay="80" data-aos-duration="700" src="assets/img/about-noshin.jpg" style="height: 450px; width: 100%; object-fit: cover;"/>
+<img alt="Noshin Tabassum"
+     class="img-fluid"
+     src="assets/img/about-noshin.jpg"
+     loading="eager"
+     fetchpriority="high"
+     style="height: 450px; width: 100%; object-fit: cover;"/>
 </div>
 <div class="sidebar-welcome">HELLO, I'M</div>
 <a class="logo d-flex align-items-center justify-content-center" href="index.html">
@@ -1591,12 +1596,25 @@ document.addEventListener("DOMContentLoaded", function () {
     const results = await Promise.all(baseNames.map(resolveImage));
     return results.filter(Boolean);
   }
-  /* Preload all interest galleries so they open instantly */
-const galleryCache = {};
+ const galleryCache = {};
 
-Object.entries(galleryBases).forEach(([key, baseNames]) => {
-  galleryCache[key] = resolveGallery(baseNames);
-});
+function preloadGalleries() {
+  Object.entries(galleryBases).forEach(([key, baseNames]) => {
+    if (!galleryCache[key]) {
+      galleryCache[key] = resolveGallery(baseNames);
+    }
+  });
+}
+
+/* Let the visible portfolio load first */
+window.addEventListener("load", function () {
+  if ("requestIdleCallback" in window) {
+    requestIdleCallback(preloadGalleries, { timeout: 2500 });
+  } else {
+    setTimeout(preloadGalleries, 1000);
+  }
+}, { once: true });
+
   const lightbox = document.createElement("div");
   lightbox.id = "noshin-interest-lightbox";
   lightbox.innerHTML = `
@@ -1688,7 +1706,12 @@ Object.entries(galleryBases).forEach(([key, baseNames]) => {
     async function handleOpen() {
       if (card.dataset.loading === "true") return;
       card.dataset.loading = "true";
-      const images = await galleryCache[key];
+
+     const images = await (
+  galleryCache[key] ||
+  (galleryCache[key] = resolveGallery(galleryBases[key]))
+);
+
       card.dataset.loading = "false";
 
       if (!images.length) {
