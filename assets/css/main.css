@@ -4945,3 +4945,169 @@ body.intro-active
     min-width: 120px !important;
   }
 }
+
+/* =========================================
+   INTEREST GALLERY — NATIVE FINAL
+========================================= */
+
+#noshin-interest-lightbox {
+  position: fixed;
+  inset: 0;
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(4, 7, 12, .95);
+
+  z-index: 99999999;
+
+  padding: 30px;
+}
+
+#noshin-interest-lightbox.show {
+  display: flex;
+}
+
+.noshin-gallery-content {
+  width: min(900px, 88vw);
+  text-align: center;
+}
+
+.noshin-gallery-image {
+  display: block;
+
+  max-width: 100%;
+  max-height: 78vh;
+
+  width: auto;
+  height: auto;
+
+  margin: auto;
+
+  object-fit: contain;
+
+  border-radius: 8px;
+
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, .55);
+}
+
+.noshin-gallery-count {
+  margin-top: 14px;
+
+  color: rgba(255, 255, 255, .72);
+
+  font-size: 13px;
+  letter-spacing: 2px;
+}
+
+.noshin-gallery-close {
+  position: absolute;
+  top: 18px;
+  right: 25px;
+
+  border: 0;
+  background: transparent;
+
+  color: #fff;
+
+  font-size: 42px;
+
+  cursor: pointer;
+}
+
+.noshin-gallery-prev,
+.noshin-gallery-next {
+  position: absolute;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  width: 48px;
+  height: 48px;
+
+  border: 0;
+  border-radius: 50%;
+
+  background: #8b1e24;
+
+  color: white;
+
+  font-size: 25px;
+
+  cursor: pointer;
+}
+
+.noshin-gallery-prev {
+  left: 24px;
+}
+
+.noshin-gallery-next {
+  right: 24px;
+}
+
+
+@media (max-width: 768px) {
+
+  .noshin-gallery-prev {
+    left: 8px;
+  }
+
+  .noshin-gallery-next {
+    right: 8px;
+  }
+
+  .noshin-gallery-image {
+    max-height: 72vh;
+  }
+
+}
+
+/* ==================================================
+   FINAL SECTION SPACING — SKILLS TO PROJECTS
+   This block is intentionally last so it wins.
+================================================== */
+#skills.skills.section {
+  padding: 45px 0 8px !important;
+  margin: 0 !important;
+}
+
+#skills .skills-content,
+#skills > .container:last-child {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+#portfolio.portfolio.section {
+  padding: 8px 0 25px !important;
+  margin: 0 !important;
+}
+
+#portfolio .section-title {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Native project filtering */
+#portfolio .portfolio-item.portfolio-hidden {
+  display: none !important;
+}
+
+/* Interest gallery polish */
+body.gallery-open {
+  overflow: hidden !important;
+}
+
+.interest-gallery-card > div {
+  cursor: pointer;
+}
+
+.noshin-gallery-title {
+  margin-top: 15px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
