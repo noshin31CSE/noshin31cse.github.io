@@ -5111,3 +5111,30 @@ body.gallery-open {
   letter-spacing: 1.5px;
 }
 
+/* FINAL FIX: Skills → Projects gap */
+#skills.skills.section {
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+#portfolio.portfolio.section {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+#skills .container:last-child {
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+#portfolio .section-title {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* Balanced width for large monitors */
+@media (min-width: 1400px) {
+  .main > section > .container {
+    max-width: 1450px;
+  }
+}
